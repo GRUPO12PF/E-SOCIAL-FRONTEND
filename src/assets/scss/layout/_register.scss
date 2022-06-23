@@ -1,0 +1,29 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.contRegister{
+  margin: 10rem auto;
+  padding: 3rem;
+
+}
+
+@include m.telefono{
+    .flex{
+      width: 95%;
+      margin: 0 auto;
+    }
+   
+  }
+
+
+  @include m.desktop{
+    .contLogin {
+      width: 600px;
+      max-height: 700px;
+      padding: 2rem;
+      .contLogin-content {
+        width: 70%;
+      }
+    }
+  }

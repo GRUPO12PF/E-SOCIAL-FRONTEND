@@ -1,0 +1,76 @@
+
+.botoness{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    background-color:none;
+    justify-content: end;
+    padding-right: 4rem;
+    padding-top: 30px ;
+
+}
+.btn{
+    margin: 4px;
+    border: none;
+    background-color: rgb(182, 181, 181);
+    padding: 3px 14px;
+    cursor: pointer;
+    
+}
+.btn:hover{
+    background-color: rgb(194, 174, 174);
+}
+
+.btnn{
+    border: none;
+    background-color: rgb(182, 181, 181);
+    padding: 3px 14px;
+    cursor: pointer;
+}
+.btnn:hover{
+    background-color: rgb(194, 174, 174);
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+.card {
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 260px;
+}
+
+.nombre{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space:nowrap;
+        width: 100%;
+        color: gray;
+        font-size: 20px;
+        
+}
+
+.book{
+    width: 100px;
+    height: 100px;
+    
+}
+
+.cardbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 250px;
+}
+
+.centrar{
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,77 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.nav {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 3px;
+    background: v.$colorNav;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+   }
+
+body::-webkit-scrollbar {
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.712);
+    border-radius: 18px;
+    color: black;
+}
+
+.link {
+    align-items: center;
+    justify-content: space-evenly;
+    color: v.$letras;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.link:hover{
+    transform: scale(1.10);
+}
+
+.setting {
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.setting:hover{
+    transform: scale(1.10);
+}
+.logout {
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-left: 15px;
+
+}
+.logout:hover{
+    transform: scale(1.10);
+}
+
+.perfilIcon {
+    padding: 0.5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    left: 12%;
+}
+.perfilIcon:hover {
+    transform: scale(1.1);
+}
+.fotoperfil {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.nameUser {
+    padding: 0.5rem;
+    font-size: 2rem;
+    color: v.$letras;
+}
