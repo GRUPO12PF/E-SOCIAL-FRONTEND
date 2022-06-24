@@ -70,7 +70,7 @@ function AllBooks() {
         ) : (
           <NotFound />
         )}
-        <div className='contanedorChat'>
+     {/*    <div className='contanedorChat'>
           {
             chatbot ?
               <div className='visible'><Chat setChatbot={setChatbot} chatbot={chatbot} /></div> : null
@@ -82,7 +82,7 @@ function AllBooks() {
             </button></abbr>.
 
 
-        </div>
+        </div>*/}
         <Pagination
           pageSize={pageSize}
           pageCurrent={pageCurrent}
