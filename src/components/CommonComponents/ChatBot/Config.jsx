@@ -1,5 +1,5 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-import Options from "./chatComponents/Options/Option.jsx";
+import Options from "../ChatBot/ChatComponents/Options/Option.jsx";
 import Quiz from "./chatComponents/Quizzes/Quizz.jsx";
 import React from "react";
 
