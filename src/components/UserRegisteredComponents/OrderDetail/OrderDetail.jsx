@@ -5,6 +5,7 @@ import { getDetalleOrder } from '../../../redux/actions/actionOrder'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import Footer from '../../CommonComponents/Footer/Footer'
 import s from './OrderDetail.module.css'
+import {  Link } from 'react-router-dom'
 
 
 const OrderDetail = () => {
@@ -19,7 +20,7 @@ const OrderDetail = () => {
 
   let response
   if (review?.length !== 0) {
-    response = 'YA CALIFICASTE AL VENDEDOR!'
+    response = '¡YA CALIFICASTE AL VENDEDOR!'
   }
   useEffect(() => {
     dispatch(getDetalleOrder(id));
@@ -39,6 +40,9 @@ const OrderDetail = () => {
     <div>
       <NavBar />
       <div className={s.containerGral} >
+      <Link to = '/profile'>
+        <button className={s.buttonPerfil}>VOLVER AL MENU</button>
+      </Link>
         <div className={s.container}>
           <p className={s.texto}>{detalles.books?.nombre}</p>
           <img className={s.image} src={detalles.books?.image} />
@@ -56,6 +60,7 @@ const OrderDetail = () => {
         <div className={s.response}>{response ? response : null}</div>
         <button id="review" className={s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
       </div>
+      <Footer/>
     </div>
   )
 }

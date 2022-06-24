@@ -7,6 +7,9 @@ import Loading from "../Loading/Loading"
 import NotFound from "../../CommonComponents/NotFound/NotFoundGral"
 import { cleanData, getBooks } from "../../../redux/actions/actionBooks.js"
 import { formatToCurrency } from "../../../utils/helperFunctions"
+import Chat from "../ChatBot/ChatBot"
+import { TbRobot } from "react-icons/tb"
+
 function AllBooks() {
   const dispatch = useDispatch()
 
@@ -48,7 +51,7 @@ function AllBooks() {
             return (
               <div key={i}>
                 {e.error ? (
-                  <h1>ERROR!</h1>
+                  <h1>¡ERROR!</h1>
                 ) : (
                   <Link id="detail" to={"/details/" + e._id}>
                     <Book
@@ -68,6 +71,18 @@ function AllBooks() {
         ) : (
           <NotFound />
         )}
+        <div className='contanedorChat'>
+          {
+            chatbot ?
+              <div className='visible'><Chat setChatbot={setChatbot} chatbot={chatbot} /></div> : null
+          }
+
+          <abbr title="NECESITAS AYUDA..">
+            <button onClick={() => setChatbot(!chatbot)}
+              className="link-chatbot"><TbRobot className="robot" />
+            </button></abbr>.
+
+        </div>
         <Pagination
           pageSize={pageSize}
           pageCurrent={pageCurrent}
