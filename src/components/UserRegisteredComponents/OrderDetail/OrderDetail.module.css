@@ -8,6 +8,10 @@
     overflow: auto;
     align-items: center;
 }
+.response{
+    color: red;
+    text-align: center;
+}
 
 .texto{
     font-size: 50px;
@@ -62,6 +66,7 @@
     margin-bottom: 1rem;
     border: none;
     margin-left: 41%;
+    margin-bottom: 10%;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;

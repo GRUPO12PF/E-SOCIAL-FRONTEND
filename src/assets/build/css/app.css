@@ -347,7 +347,7 @@ p {
 
 a {
   text-decoration: none;
-  color: #c2c2c2;
+  color: #e1e1e1;
 }
 a:hover {
   cursor: pointer;
@@ -355,7 +355,7 @@ a:hover {
 
 .a {
   text-decoration: none;
-  color: #c2c2c2;
+  color: #e1e1e1;
 }
 .a:hover {
   cursor: pointer;
@@ -390,7 +390,7 @@ img {
 }
 
 .contSettings {
-  background-color: #c2c2c2;
+  background-color: #e1e1e1;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -1525,5 +1525,83 @@ div.portfoliocard div.follow_count {
   left: 94rem;
   top: 66rem;
   z-index: 999999;
+}
+
+.contentChat {
+  width: 90%;
+  margin: 1rem auto;
+}
+.contentChat ::-webkit-scrollbar {
+  width: 10px;
+}
+.contentChat ::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(25, 147, 147, 0.1);
+}
+.contentChat ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.contentChat .contChat {
+  z-index: -1;
+  color: #F6AA1C;
+  position: fixed;
+  background-color: #621708;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  border-top: solid 1px #621708;
+  border-left: solid 1px #621708;
+  border-right: solid 1px #621708;
+  bottom: 0;
+  right: 5px;
+}
+@media (min-width: 768px) {
+  .contentChat .contChat {
+    margin: 1rem 5rem;
+    width: 90%;
+  }
+}
+
+.ulChat {
+  margin: 24px auto 0 auto;
+  padding: 0 20px 0 0;
+  list-style: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.cadaMensaje {
+  z-index: -1;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  padding: 16px 40px 16px 20px;
+  margin: 0 0 20px 0;
+  border-radius: 10px;
+  color: #f0f8ff;
+  display: flex;
+  margin: 0.5rem 0;
+  padding: 1rem;
+}
+.cadaMensaje .cadaMensaje li:after {
+  top: 15px;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+}
+.cadaMensaje li:nth-child(even) {
+  animation: show-chat-even 0.15s 1 ease-in;
+  -moz-animation: show-chat-even 0.15s 1 ease-in;
+  -webkit-animation: show-chat-even 0.15s 1 ease-in;
+  float: left;
+  color: #0EC879;
+}
+.cadaMensaje .span {
+  color: #BC3908;
+  font-weight: 700;
+}
+.cadaMensaje .otro {
+  color: #663a8f;
 }
 /*# sourceMappingURL=app.css.map */
