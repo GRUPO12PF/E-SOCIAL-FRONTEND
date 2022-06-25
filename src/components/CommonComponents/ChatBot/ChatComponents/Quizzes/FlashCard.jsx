@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import styles from  "../Quizzes/Quizz.module.css";
 
-export default function FlashCard ({ question, answer, incrementIndex }) {
+const FlashCard = ({ question, answer, incrementIndex }) => {
   const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => setShowAnswer(false), [question]);
@@ -24,3 +24,5 @@ export default function FlashCard ({ question, answer, incrementIndex }) {
     </>
   );
 };
+
+export default FlashCard;

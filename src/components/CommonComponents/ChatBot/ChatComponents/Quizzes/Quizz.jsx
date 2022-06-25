@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import FlashCard from "../Quizzes/Quizz.jsx";
-//import styles from "../Quizzes/Quizz.module.css"
-
-export default function Quiz (props) {
+import FlashCard from "../Quizzes/Flashcard.jsx";
+import styles from "../Quizzes/Quizz.module.css"
+const Quiz = (props) => {
   console.log(props);
   let [questionIndex, setQuestionIndex] = useState(0);
 
@@ -30,3 +29,5 @@ export default function Quiz (props) {
     />
   );
 };
+
+export default Quiz;

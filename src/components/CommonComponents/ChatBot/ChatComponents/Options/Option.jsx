@@ -1,7 +1,7 @@
 import React from "react";
-import styles from '../Options/Options.module.css';
+import styles from '../Options/Options.module.css'
 
-export default function Options (props) {
+const Options = (props) => {
   const options = [
     {
       text: "Registrarme",
@@ -27,3 +27,5 @@ export default function Options (props) {
 
   return <div className={styles.optionContainer}>{buttonsMarkup}</div>;
 };
+
+export default Options;

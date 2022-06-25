@@ -5,6 +5,9 @@ import Settings from "../../../Iconos/Settings"
 import Perfil from "../../../Iconos/Perfil"
 import Admin from "../../../Iconos/Admin"
 import Chat from "../../../Iconos/Chat"
+import About from "../../../Iconos/About"
+import Sales from "../../../Iconos/Sales"
+
 
 export default function ProfileSettings() {
   const navigate = useNavigate()
@@ -22,10 +25,24 @@ export default function ProfileSettings() {
   return (
     <div className="profileModal">
 
-     <div className="divModalPerfil">
+      <div className="divModalPerfil">
         <Link to="/profile" >
-          <Perfil/>
+          <Perfil />
           <h3>Perfil</h3>
+        </Link>
+      </div>
+
+      <div className="divModalPerfil">
+        <Link to="/about" >
+          <About />
+          <h3>Nosotros</h3>
+        </Link>
+      </div>
+
+      <div className="divModalPerfil">
+        <Link to="/create" >
+          <Sales />
+          <h3>Vender</h3>
         </Link>
       </div>
 
@@ -35,11 +52,11 @@ export default function ProfileSettings() {
           <h3>Ajustes</h3>
         </Link>
       </div>
-      
+
       <div className="divModalPerfil" >
-      <Link to="/chat" >
-        <Chat />
-        <h3>Chat</h3>
+        <Link to="/chat" >
+          <Chat />
+          <h3>Chat</h3>
         </Link>
       </div>
 
@@ -54,7 +71,7 @@ export default function ProfileSettings() {
         <Link to="/">
           <IconsLogout />
           <h3>Logout</h3>
-        </Link>        
+        </Link>
       </div>
 
     </div>

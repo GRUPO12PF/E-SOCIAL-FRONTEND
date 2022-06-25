@@ -3,11 +3,15 @@ import Modal from "react-modal"
 import { Link } from "react-router-dom"
 import { usuarioActual } from "../../../redux/actions/actionUser"
 import { useDispatch, useSelector } from "react-redux"
+import logo from "../../../assets/images/logo.png"
 import profile from "../../../assets/images/avatar2.png"
 import io from "socket.io-client"
 let socket
 
 import ProfileSettings from "../../UserRegisteredComponents/ProfileSettings/ProfileSettings"
+import SearchBar from "../SearchBar/SearchBar"
+import FilterCategories from "../FilterCategories/FilterCategories"
+import Sorter from "../Sorter/Sorter"
 
 const customStyls = {
   overlay: {
@@ -40,29 +44,34 @@ export default function NavBar() {
     showModal && setShowModal(false)
   }
   return (
-    <div>
-      <nav className="nav" onClick={closeModal}>
-        <Link to="/" className="link">HOME</Link>
-        {token ? (<Link to="/create" className="link">VENDER</Link>) : null}
-        <Link to="/about" className="link">ABOUT</Link>
-        {!token ? (<Link to="/homeout" className="link">REGISTRO / LOGIN</Link>) : null}
-        <div className="perfilIcon">
+    <div className="fullnav">
+      <div className="contentNav" onClick={closeModal}>
+      <Link to="/">
+        <img className="logo" src={logo} alt="Logo Perfil" />
+      </Link>
+      <div className="flex-sea">
+        <SearchBar className="flez"/>
+        <FilterCategories/>
+        <Sorter/>
+      </div>
+        {/* {token ? (<Link to="/create" className="link">VENDER</Link>) : null}
+        <Link to="/about" className="link">ABOUT</Link>*/}
+        <div className="perfil">
           {token ? <p className="nameUser">{`¡Hola ${usuarioAct.nombre}!`}</p> : null}
           {usuarioAct.length !== 0 ? (
-            <div>
+            <div className="image-click">
               <img
-                className="fotoperfil"
                 src={usuarioAct.image.url ? usuarioAct.image.url : profile}
                 alt="Perfil de usuario"
                 onClick={handleButton}
               />
             </div>
-          ) : null}
+          ) : (<Link to="/homeout" className="link">REGISTRO / LOGIN</Link>)}
           <Modal style={customStyls} isOpen={showModal} className="customStyles">
             <ProfileSettings />
           </Modal>
         </div>
-      </nav>
+      </div>
     </div>
   )
 }

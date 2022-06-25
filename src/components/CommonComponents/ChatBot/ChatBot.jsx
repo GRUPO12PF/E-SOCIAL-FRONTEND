@@ -9,7 +9,8 @@ import MessageParser from './MessageParser.jsx';
 export default function Chat({chatbot, setChatbot}){
     
             return (
-            <div className="chatbotContainer ">  
+            <div className="chatbotContainer ">
+         
             <button onClick={() =>setChatbot(!chatbot)} className="button-chatbot">X</button>
             <ChatBot setChatbot={setChatbot} chatbot={chatbot} 
             config={config} 
@@ -18,5 +19,9 @@ export default function Chat({chatbot, setChatbot}){
             
             />
             </div>
+           
+            
+                
+            
         )
     }
