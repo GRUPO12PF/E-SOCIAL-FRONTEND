@@ -1,6 +1,6 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-import Options from "./chatComponents/Options/Option";
-import Quiz from "./chatComponents/Quizzes/Quizz";
+import Options from "./chatComponents/Options/Option.jsx";
+import Quiz from "./chatComponents/Quizzes/Quizz.jsx";
 import React from "react";
 
 const config = {
