@@ -6,7 +6,7 @@ import malu from "../../../assets/images/Malu.jpg"
 import manu from "../../../assets/images/Manu.jpg"
 import avatar2 from "../../../assets/images/avatar2.png"
 import LinkedIn from "../../../Iconos/LinkedIn"
-import GitHubAbout from "../../../Iconos/GitHub.jsx"
+import GitHubAbout from "../../../Iconos/GitHubAbout.jsx"
 import Footer from "../Footer/Footer"
 
 export default function About() {
