@@ -19,9 +19,9 @@ export default function FilterCategories() {
 
   return (
     <div className="ccc">
-      <select class="bg-white text-gray-600 py-3 px-6 shadow-md rounded inline mt-0 mr-1 ml-1 font-semibold racking-wider"
+      <select className="bg-white text-gray-600 py-3 px-6 shadow-md rounded inline mt-0 mr-1 ml-1 font-semibold racking-wider"
        onChange={handleCategorySelect}>
-        <option value={''}>TODAS LAS CATEGORÍAS</option>
+        <option value={''}>Todas las categorías</option>
         {categories?.map((g, i) => {
           return (
             <option value={g} key={i}>{g}</option>

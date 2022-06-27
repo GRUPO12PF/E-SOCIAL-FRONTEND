@@ -7,6 +7,8 @@ import Loading from "../Loading/Loading"
 import NotFound from "../../CommonComponents/NotFound/NotFoundGral"
 import { cleanData, getBooks } from "../../../redux/actions/actionBooks.js"
 import { formatToCurrency } from "../../../utils/helperFunctions"
+import Chat from "../ChatBot/ChatBot"
+import { TbRobot } from "react-icons/tb"
 import Footer from "../Footer/Footer"
 
 function AllBooks() {
