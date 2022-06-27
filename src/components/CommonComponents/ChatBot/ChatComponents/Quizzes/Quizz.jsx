@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FlashCard from "../Quizzes/FlashCard";
+import FlashCard from "../Quizzes/Flashcard.jsx";
 import styles from "../Quizzes/Quizz.module.css"
 const Quiz = (props) => {
   console.log(props);

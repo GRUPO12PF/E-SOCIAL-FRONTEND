@@ -14,7 +14,8 @@ const ProfileUsers = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.usuarioProfile)
   const book = useSelector(state => state.booksCreated)
-  const review = useSelector(state => state.review)
+  const review = useSelector(state => state.allReviews)
+  console.log("a ver qué trae de acá...", review)
 
   useEffect(() => {
     dispatch(usuarioCreated(id))
@@ -31,7 +32,14 @@ const ProfileUsers = () => {
   const page = (pageNumber) => {
     setPageCurrent(pageNumber)
   }
-  const goToNextPage = () => setPageCurrent(pageCurrent + 1);
+
+  const goToNextPage = () => {
+    if(pageCurrent < book.length){
+      setPageCurrent(pageCurrent + 1);
+    }
+  
+  }
+  
   const goToPreviousPage = () => {
     if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
   }
