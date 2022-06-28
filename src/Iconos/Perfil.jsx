@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Perfil() {
+export default function Perfil() {
   return (
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#f0f8ff" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -11,5 +11,3 @@ function Perfil() {
     </div>
   )
 }
-
-export default Perfil
