@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react'
-import { getAllUsers } from '../../../redux/actions/actionAdmin'
+import { getAllUsers, deleteUser } from '../../../redux/actions/actionAdmin'
 import { useDispatch, useSelector } from 'react-redux'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import profile from '../../../assets/images/avatar2.png'
 import Pagination from '../../CommonComponents/Pagination/Pagination'
 import s from './AllUsers.module.css'
-import Remove from '../../../Iconos/Remove.jsx'
-import Edit from '../../../Iconos/Edit.jsx'
+import Remove from '../../../Iconos/remove'
+import Edit from '../../../Iconos/Edit'
 
 
-function AllUsers() {
+
+function AllUsers() { 
   const dispatch = useDispatch()
   const allUsers = useSelector(state => state.allUsuarios)
+  const userActu = useSelector(state => state.usuarioActual)
+
+  console.log("soy el usuario actuaaaaal", userActu)
 
   useEffect(() => {
     dispatch(getAllUsers())
@@ -32,14 +36,18 @@ function AllUsers() {
     setCurrentUser(id)
   }
 
-  const handleDelete = (e, id) => {
+  const handleDelete = async (e, id) => {
     e.preventDefault()
-    if (
-      window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true
-    ) {
-      dispatch(deleteUser(id))
-      alert("Usuario eliminado correctamente.")
-      window.location.reload()
+    if(userActu._id === id){
+      alert("No puedes eliminarte a ti mismo")
+    } else {
+      if (window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true) {
+       dispatch(deleteUser(id))
+       alert("Usuario eliminado correctamente.")
+ 
+       window.location.reload()
+     }
+      
     }
   }
   return (

@@ -8,7 +8,7 @@ import yona from "../../../assets/images/yona.jpeg";
 import  mati from "../../../assets/images/mati.jpeg"
 import avatar2 from "../../../assets/images/avatar2.png"
 import LinkedIn from "../../../Iconos/LinkedIn"
-import GitHubAbout from "../../../Iconos/GitAbout.jsx"
+import GitHubAbout from "../../../Iconos/GitHubAbout"
 import Footer from "../Footer/Footer"
 
 export default function About() {

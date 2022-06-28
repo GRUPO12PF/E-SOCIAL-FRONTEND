@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function help() {
+function help() {
     return (
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-help" width="80" height="80" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -13,3 +13,4 @@ export default function help() {
     )
 }
 
+export default help

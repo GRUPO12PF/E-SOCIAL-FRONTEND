@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Chat() {
+function Chat() {
     return (
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-messages" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#f0f8ff" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -12,3 +12,4 @@ export default function Chat() {
     )
 }
 
+export default Chat

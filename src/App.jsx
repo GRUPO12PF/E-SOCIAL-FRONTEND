@@ -8,8 +8,6 @@ import {
 //----------------------------------GUEST---------------------------------------------
 import AuthLayout from "./layouts/AuthLayout"
 import LandingPage from "./components/CommonComponents/LandingPage/LandingPage.jsx"
-import Login from "./components/CommonComponents/Login/Login.jsx"
-import Register from "./components/CommonComponents/Register/Register.jsx"
 import ForgotPassword from "./components/CommonComponents/ForgotPassword/ForgotPassword.jsx"
 import NewPassword from "./components/CommonComponents/NewPassword/NewPassword.jsx"
 import ConfirmAccount from "./components/CommonComponents/ConfirmAccount/ConfirmAccount.jsx"
@@ -57,8 +55,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/seller" element={<UserCard />} />
           <Route path="/profile/:id" element={<ProfileUsers/>}/>
-
-
         </Route>
 
          <Route path="/" element={<VerificationUser />}>
@@ -79,8 +75,14 @@ export default function App() {
           <Route path="/admin/allReviews" element={<AllReviews/>}/>
           <Route path="/review/:id" element={<Review />} />
           <Route path="/chat" element={<HomeChat />} />
-          </Route>
+        </Route>
 
+
+   {/*  <Route path="/" element={<VerificationAdmin />}>
+
+        </Route>*/}
+
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
