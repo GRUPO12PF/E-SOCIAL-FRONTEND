@@ -1,6 +1,6 @@
 import React from 'react'
 
-function GitHubAbout() {
+export default function GitAbout() {
   return (
     <div>
         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -10,5 +10,3 @@ function GitHubAbout() {
   </div>
   )
 }
-
-export default GitHubAbout
