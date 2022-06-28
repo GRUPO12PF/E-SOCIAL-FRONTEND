@@ -52,30 +52,18 @@ const Carousell = () => {
       <div className="slide">
         <img src={ban11} height="200" width="250" alt="" />
       </div>
-      {/* <div className="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+      <div className="slide">
+        <img src={ban01} height="200" width="250" alt="" />
       </div>
       <div className="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+        <img src={ban02} height="200" width="250" alt="" />
       </div>
       <div className="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-      </div> */}
+        <img src={ban08} height="200" width="250" alt="" />
+      </div>
     </div>
   </div>
-    // <Carousel>
-    //   <div>
-    //     <img className="imag" src={banner1} />
-    //     <p className="legend">Vida Saludable</p>
-    //   </div>
-    //   <div>
-    //     <img className="imag" src={banner2} />
-       
-    //   </div>
-
-    // </Carousel>
-
-  )
+    )
 }
 
 export default Carousell
