@@ -15,7 +15,6 @@ import EditCard from './EditCard/EditCard'
 import CampoInput from './CampoInput/CampoInput'
 import CampoSelect from './CampoInput/CampoSelect'
 import s from '../Form/Form.module.css'
-// import { BackButton } from '../../CommonComponents/Buttons/BackButton'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -126,22 +125,37 @@ const Forms = () => {
                     req={'*'}
                   />
 
+                  <CampoInput
+                    name='descripcion'
+                    type="text"
+                    as="textarea"
+                    input={cant_pags}
+                    isCreate={isCreate}
+                    errors={errors}
+                    req={'*'}
+                  />
+
                   <div className={s.formContents2}>
-                    <label className={s.label}>Categorías*</label>
+                    <label className={s.labelCenter}>Categorías*</label>
                     <div className={s.check}>
                       <div role="group" aria-labelledby="checkbox-group" >
                         {categories?.map((e, i) =>
-                          <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
+                          <div key={i} className={s.optionContainer} >
+                            <Field className={s.checkBox} type="checkbox" name="category" value={`${e}`} />
+                            {e}
+                          </div>
                         )}
                       </div>
                     </div>
 
                     <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
-                    {!isCreate ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p> : null}
+                    {!isCreate
+                      ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p>
+                      : null}
                   </div>
                   <div className={s.fotoF1}>
                     <div id='Selector para subir Img'>
-                      <label className={s.label} >Fotografía del ejemplar</label>
+                      <label className={s.labelCenter} >Fotografía del ejemplar*</label>
                       {uploadImg
                         /* cambiar a Pasar Img por URL */
                         ? <div >
@@ -150,7 +164,7 @@ const Forms = () => {
                               setUploadImg(false)
                             }}>PASAR URL
                           </button>
-                          <p className={s.pF}>Cargue el archivo de su imagen</p>
+                          <p className={s.textoFile}>Cargue el archivo de su imagen</p>
                         </div>
 
                         /* cambiar a Img a Cloudinary */
@@ -160,7 +174,7 @@ const Forms = () => {
                               setUploadImg(true)
                             }}>SUBIR IMAGEN
                           </button>
-                          <p className={s.pF}>Ingrese la URL de su imagen</p>
+                          <p className={s.textoFile}>Ingrese la URL de su imagen</p>
                         </div>
                       }
                     </div>
@@ -181,14 +195,14 @@ const Forms = () => {
                             }}
                           />
 
-                          <button className={s.uploadButton} type="button" onClick={() => {
+                          <button className={s.loadImageBtn} type="button" onClick={() => {
                             fileRef.current.click()
                           }}>
                             CARGAR IMAGEN
                           </button>
 
                           {values.file && <PreviewImage file={values.file} />}
-                          {values.file && confirmImg && <button className={s.confirmP} type="button"
+                          {values.file && confirmImg && <button className={s.loadImageBtn} type="button"
                             disabled={errors.file}
                             onClick={() => {
                               handleImage(values.file)
@@ -204,6 +218,7 @@ const Forms = () => {
                             type="text"
                             id="image"
                           />
+                          {values.image && <img src={values.image} alt="preview" className={s.previewImg} />}
                         </div>)
                       }
 
@@ -217,7 +232,7 @@ const Forms = () => {
               </div> {/* FIN-Requeridos */}
               <br />
               <div id='OPCIONALES' className={s.formContents3}>
-                <button className={s.adicional}onClick={() => setVerMas(!verMas)}>
+                <button className={s.adicional} onClick={() => setVerMas(!verMas)} type="button">
                   {verMas ? "Quitar" : "Opcionales"}
                 </button>
 
@@ -242,19 +257,17 @@ const Forms = () => {
                       errors={errors}
                     />
 
-                    <div className={s.tapas}>
-                      <CampoSelect
-                        name='tapa'
-                        input={tapa}
-                        isCreate={isCreate}
-                        errors={errors}
-                        values={values}
-                        option1={'Blanda'}
-                        value1={'Blanda'}
-                        option2={'Dura'}
-                        value2={'Dura'}
-                      />
-                    </div>
+                    <CampoSelect
+                      name='tapa'
+                      input={tapa}
+                      isCreate={isCreate}
+                      errors={errors}
+                      values={values}
+                      option1={'Blanda'}
+                      value1={'Blanda'}
+                      option2={'Dura'}
+                      value2={'Dura'}
+                    />
 
                     <CampoInput
                       text='año de publicación'
@@ -309,9 +322,9 @@ const Forms = () => {
                 disabled={Object.keys(errors).length > 0}
               >ENVIAR FORMULARIO</button>
 
-              {/* <BackButton /> */}
-
+              {console.log('🚀 — file: Forms.jsx — line 319 — Forms — errors', errors)}
             </Form>
+
           )}
         </Formik>
       </div>

@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetalleOrder, review } from '../../../redux/actions/actionOrder'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import Footer from '../../CommonComponents/Footer/Footer'
 import s from './Review.module.css'
-const Review = () => {
+import swal from 'sweetalert';
+
+const Review = ({id, closeModal}) => {
   const Navigate = useNavigate()
-  const { id } = useParams()
   const dispatch = useDispatch()
   const detalles = useSelector(state => state.order)
   const vendedor = detalles.books?.creador
@@ -58,15 +58,23 @@ const Review = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(input.description && input.score && input.title){
+    if(input.description && input.score){
       console.log("acá están todos los inputs", input)
       if(input.score > 5 || input.score <= 1){
-        alert("El score debe ser entre 1 y 5")
+        swal({
+          title: "¡El score debe ser entre 1 y 5!",
+          text: " ",
+          button: "Ok!",
+        })
       } else {
         dispatch(review(input))
-        alert("ok")
+        swal({
+          title: "¡Review enviada con éxito!",
+          text: " ",
+          icon: "success",
+          button: "Ok!",
+        })
         setInput({
-          title: "",
           vendedor: "",
           description: "",
           score: "",
@@ -75,24 +83,22 @@ const Review = () => {
         Navigate("/")
       }
     } else {
-      alert("Faltan campos por completar")
+      swal({
+        title: "Faltan campos por completar",
+      });
     }
   }
 
   return (
     <>
-    <div className={s.papa}>
-      <NavBar />
-      <Link to = '/profile'>
-        <button class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
-      </Link>
-      
-      <div class="bg-gray-50 rounded-lg max-w-7xl p-10 mt-10  flex justify-center lg:w-1/2 ml-60 " >
+    <div>
+    <button onClick={closeModal}  >X</button>
+
   <div class="bg-white p-10 rounded-lg shadow md:w-3/4 lg:w-1/2 mx-auto">
 
     <form action="" class="" onSubmit={(e)=>handleSubmit(e)}>
 
-      <div class="mb-5">
+      {/* <div class="mb-5">
         <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Título</label>
         <input 
            type="text"
@@ -102,10 +108,10 @@ const Review = () => {
         placeholder="Escribi el título" 
         class="text-2xl border border-gray-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
-      </div>
+      </div> */}
 
       <div class="mb-5">
-        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Descripción</label>
+        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Review</label>
         <input 
         type="text"
         name="description"
@@ -114,10 +120,10 @@ const Review = () => {
         placeholder="..." 
         class="text-4xl border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
-        <p class=" text-red-400 mt-2 text-xl">Descripción name is required</p>  
+        {/* <p class=" text-red-400 mt-2 text-xl">Descripción name is required</p>   */}
       </div>
       <div class="mb-10">
-        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">score</label>
+        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Score</label>
         <input type="number"
             name="score"
             value={input.score}
@@ -125,7 +131,7 @@ const Review = () => {
         class="border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
       
-        <p class="text-xl text-red-400 mt-2">Score name is required</p>  
+        {/* <p class="text-xl text-red-400 mt-2">El score es re</p>   */}
       </div>
       
       <button type="submit" class="bg-blue-300 hover:bg-blue-400 w-full p-3 shadow-md font-bold text-3xl text-white rounded-lg transition duration-300">Submit</button>
@@ -134,8 +140,7 @@ const Review = () => {
 
   </div>
 </div>
-      {/* <Footer/> */}
-      </div>
+
     </>
   )
 }
