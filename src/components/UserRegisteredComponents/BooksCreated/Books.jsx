@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import s from './BooksCreated.module.css';
 
+
+
 function Books({ nombre, image, price, id, order }) {
   const token = localStorage.getItem('token')
   const dispatch = useDispatch()
@@ -20,6 +22,7 @@ function Books({ nombre, image, price, id, order }) {
     if (!order.length > 0) {
       e.preventDefault()
       dispatch(deleteBook(id))
+      if(window.confirm("¿Estás seguro que quieres eliminar este libro? Si lo eliminas no podrás deshacer el cambio.")===true)
       swal({
         title: '¡Eliminado con éxito!',
         text: ' ',
@@ -28,7 +31,7 @@ function Books({ nombre, image, price, id, order }) {
       })
       navigate('/')
     } else {
-      alert('No se puede borrar el libro porque se vendio')
+      swal('No se puede borrar el libro porque se vendio')
     }
 
   }
@@ -37,7 +40,7 @@ function Books({ nombre, image, price, id, order }) {
       e.preventDefault()
       navigate(`/details/update/${id}`)
     } else {
-      alert('No se puede modificar el libro porque se vendio')
+      swal('No se puede modificar el libro porque se vendio')
     }
   }
 
@@ -46,7 +49,7 @@ function Books({ nombre, image, price, id, order }) {
       e.preventDefault()
       navigate(`/details/${id}`)
     } else {
-      alert('No se puede ver el detalle de este libro porque se vendio')
+      swal('No se puede ver el detalle de este libro porque se vendio')
     }
 
   }

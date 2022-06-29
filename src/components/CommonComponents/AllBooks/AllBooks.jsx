@@ -77,7 +77,6 @@ function AllBooks() {
             page={page}
           />
         </div>
-
       </div>
       <Footer />
     </>

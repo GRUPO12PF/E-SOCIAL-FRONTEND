@@ -10,7 +10,7 @@
     color: #e8ddbd;
 
 }
-.container {
+.containerPerfil {
     padding: 1%;
     border-radius: 20px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
@@ -52,7 +52,7 @@
     /* margin: 0px auto; */
     background-color: #9d1d36;
     font-size: 20px;
-    color: #e8ddbd
+    color: #e8ddbd;
 
    
 }
@@ -86,8 +86,5 @@
 
 .probando{
     filter:alpha(opacity=70);
-    width: 650px;
-    margin: 10%;
-    padding: 1%;
-    position: relative;
+
 }

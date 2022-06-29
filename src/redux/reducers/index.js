@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, DELETE_USER, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, NEW_FIRST, IS_ADMIN } from '../utils/constants'
+import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, DELETE_USER, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, NEW_FIRST, IS_ADMIN, ADMIN_AN_USER } from '../utils/constants'
 
 const initialState = {
   allBooks: [],
@@ -30,6 +30,9 @@ const initialState = {
   usuario: [],
   usuarioActual: [],
   usuarioProfile: [],
+  adminAnUser: [],
+  updateNombre: []
+
 }
 
 function rootReducer(state = initialState, action) {
@@ -104,7 +107,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         isAdmin: action.payload,
       }
-
+    case 'UPDATE_NOMBRE':
+      return {
+        ...state,
+        updateNombre: action.payload
+      }
     //---------------------BOOKS----------------------------------------
     case 'GET_BOOKS':
       return {
@@ -279,6 +286,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         deleteUserAsAdmin: action.payload
+      }
+    case ADMIN_AN_USER:
+      return {
+        ...state,
+        adminAnUser: action.payload
       }
     //----------------------QA---------------
     case POST_ANSWER:

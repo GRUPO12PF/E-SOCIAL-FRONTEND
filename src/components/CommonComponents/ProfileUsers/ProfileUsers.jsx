@@ -49,15 +49,30 @@ const ProfileUsers = () => {
       <div className="portfoliocard">
         <div className="coverphoto"></div>
         <div className="profile_picture"><img className="imageR" src={user.image?.url} alt="" /></div>
+        <div className="contenedorcol">
         <div className="left_col">
           <div className="followers">
-            <div className="follow_count"></div>
+          {curr?.map(e => {
+            return (
+              <ProfileBook
+                id={e._id}
+                order={e.order}
+                nombre={e.nombre}
+                autor={e.autor}
+                image={e.image}
+              />
+            )
+          })}
           
-          </div>
-          <div className="following">
-            <div className="follow_count"></div>
-          
-          </div>
+            <PaginadoUser
+          pageSize={pageSize}
+          allBooks={book.length}
+          page={page}
+          goToNextPage={goToNextPage}
+          goToPreviousPage={goToPreviousPage}
+        />
+                    </div>
+         
         </div>
         <div className="right_col">
           <h2 className="name">{user.nombre}</h2>
@@ -79,28 +94,13 @@ const ProfileUsers = () => {
             }
           </div>
         </div>
+        </div>
       </div>
       <div >
         <div>
-          {curr?.map(e => {
-            return (
-              <ProfileBook
-                id={e._id}
-                order={e.order}
-                nombre={e.nombre}
-                autor={e.autor}
-                image={e.image}
-              />
-            )
-          })}
+         
         </div>
-        <PaginadoUser
-          pageSize={pageSize}
-          allBooks={book.length}
-          page={page}
-          goToNextPage={goToNextPage}
-          goToPreviousPage={goToPreviousPage}
-        />
+       
       </div>
     </>
   )

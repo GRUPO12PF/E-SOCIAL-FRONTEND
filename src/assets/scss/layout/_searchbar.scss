@@ -93,7 +93,6 @@
     appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
     transition: all var(--dur) var(--bez);
     transition-property: width, border-radius;
-    z-index: 1;
     position: relative;
   }
   .buttonB {

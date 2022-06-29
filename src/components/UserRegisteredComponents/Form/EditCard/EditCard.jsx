@@ -7,7 +7,7 @@ import s from '../Form.module.css'
 const EditCard = ({ id, addMode }) => {
   const dispatch = useDispatch()
   const { nombre, descripcion, price, image } = useSelector(state => state.detail)
-  
+
   const priceShow = formatToCurrency(price)
 
   const [verMas, setVerMas] = useState(false)
@@ -17,28 +17,35 @@ const EditCard = ({ id, addMode }) => {
   }, [])
 
   return (
-    <div>
-      <h1 className={s.titleForm}>{addMode ? 'Anunciar Producto' : `Editar: ${nombre}`}</h1>
-      {
-        addMode
-          ? null
-          : (
-            <div className={s.centro}>
-              <img src={image} alt='portada anterior' style={{maxWidth: "300px"}}/>
-              {priceShow}<br />
+    <>
+      <h1 className={s.titleForm}>{addMode ? 'ANUNCIAR LIBRO' : `EDITAR LIBRO`}</h1>
+      <div className={s.contenedorBook}>
+        {
+          addMode
+            ? null
+            : (
+              <div className={s.cardBook}>
+                <img src={image} alt='portada anterior' className={s.imgBook} />
+                <p className={s.precioBook}> {priceShow}</p>
 
-              <button onClick={() => setVerMas(!verMas)}>
-                {verMas ? "Ver menos" : "Ver más"}
-              </button>
-              <br />
+                {
+                  descripcion?.length > 100
+                    ? (<button className={s.btnBook} onClick={() => setVerMas(!verMas)}>
+                      {verMas ? ". . ." : "VER DESC"}
+                    </button>
+                    )
+                    : null
+                    }
+                {
+                verMas
+                  ? <p className={s.textBook}>{descripcion}</p>
+                  : <p className={s.textBook}>{descripcion?.substring(0, 100)}</p>
+                  }
 
-              {!verMas
-                ? `Desc: ${descripcion?.substring(0, 100)}...`
-                : <p>Desc: {descripcion}</p>}
-              <br />
-            </div>)
-      }
-    </div >
+              </div>)
+        }
+      </div >
+    </>
   )
 }
 export default EditCard
