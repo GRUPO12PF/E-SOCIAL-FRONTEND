@@ -7,8 +7,6 @@ import Loading from "../Loading/Loading"
 import NotFound from "../../CommonComponents/NotFound/NotFound"
 import { cleanData, getBooks } from "../../../redux/actions/actionBooks.js"
 import { formatToCurrency } from "../../../utils/helperFunctions"
-import Chat from "../ChatBot/ChatBot"
-import { TbRobot } from "react-icons/tb"
 import Footer from "../Footer/Footer"
 
 function AllBooks() {
@@ -73,18 +71,6 @@ function AllBooks() {
           ) : (
             <NotFound />
           )}
-          <div className='contanedorChat'>
-            {
-              chatbot ?
-                <div className='visible'><Chat setChatbot={setChatbot} chatbot={chatbot} /></div> : null
-            }
-
-            <abbr title="NECESITAS AYUDA..">
-              <button onClick={() => setChatbot(!chatbot)}
-                className="link-chatbot"><TbRobot className="robot" />
-              </button></abbr>.
-
-          </div>
           <Pagination
             pageSize={pageSize}
             pageCurrent={pageCurrent}
