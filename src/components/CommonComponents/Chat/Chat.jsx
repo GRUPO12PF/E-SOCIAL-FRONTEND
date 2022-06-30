@@ -40,6 +40,7 @@ export default function Chat({ usuario, socket }) {
     "culiado",
     "huecudo",
     "pijudo",
+    "bug",
     "bugs",
     "bag",
     "trolo",
