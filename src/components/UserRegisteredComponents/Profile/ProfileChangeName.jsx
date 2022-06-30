@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {cambiarNombre} from "../../../redux/actions/actionUser"
-import s from './Profile.module.css'
-
+import swal from 'sweetalert';
 export default function ProfileChangeName({closeModalNombre, idUser}) {
   const [nombre, setNombre] = useState("")
   const dispatch = useDispatch()
@@ -20,20 +19,19 @@ console.log(idUser)
         nombre: nombre
     })) 
      console.log(hola)
-    alert('Tu nombre se modifico correctamente')
+    swal('Tu nombre se modifico correctamente')
     window.location.reload()
   }
 
   return (
-    <div className={s.containerGeneral}>
-      <div className={s.containerImagen}>
+    <div className="containerGeneral">
+      <div className="containerImagen">
       <button onClick={closeModalNombre}  >X</button>
         <div>
-          <p>Cambia tu nombre de usuario</p>
+          <p>Cambia tu nombre</p>
           <form onSubmit={handleSubmit}>
-            <label>Nombre</label>
             <input
-             className={s.input}
+             className="inputName"
               name="nombre"
               value={nombre}
               onChange={handleChange}
@@ -42,8 +40,8 @@ console.log(idUser)
               placeholder="Cambia tu nombre de usuario"
             />
     
-              <button className={s.buttonPsw} type="submit">
-                CAMBIAR NOMBRE DE USUARIO
+              <button className="buttonPsw" type="submit">
+                CAMBIAR
               </button>
           </form>
         </div>
