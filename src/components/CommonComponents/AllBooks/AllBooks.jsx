@@ -28,7 +28,6 @@ function AllBooks() {
   const indexOfFirstBooks = indexOfLastBooks - pageSize
   const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
   const [loading, setLoading] = useState(true)
-  const [chatbot, setChatbot] = useState(false)
 
   if (allBooks?.length > 0 && loading) {
     setTimeout(() => {
