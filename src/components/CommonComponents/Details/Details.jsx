@@ -216,7 +216,7 @@ const Details = () => {
                       <button className="btnn-detalle bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">COMPRAR</button>
                     </Link>
                     :
-                    <Link to="/registrar">
+                    <Link to="/homeout">
                       <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider btnn-detalle">COMPRAR</button>
                     </Link>
                   : null
